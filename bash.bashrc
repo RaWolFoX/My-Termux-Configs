@@ -162,6 +162,14 @@ function hist() {
 }
 
 
+# Automatically do an ls after each cd
+cd() {
+  if [ -n "$1" ]; then
+    builtin cd "$@" && ls --group-directories-first -A
+  else
+    builtin cd ~ && ls --group-directories-first -A
+  fi
+}
 
 
 #--------------------------------------------------------
